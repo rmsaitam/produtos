@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Cadastro de Produtos e Impostos </title>
+  <link rel="stylesheet" type="text/css" href="css\form2.css">
+  <script src="js\jquery-2.2.0.min.js"> </script>
+  
+  <script type="text/javascript">
+	$(document).ready(function(){
+	   $("#submit").click(function(e){
+               
+               e.preventDefault();
+
+	       var nomeproduto = $("#nomeproduto").val();
+               var percentualimposto = $("#percentualimposto").val();
+               var valor = $("#valor").val();
+               var quantidade = $("#quantidade").val();
+               //console.log("produto " +nomeproduto);
+               //console.log("percentual imposto " +percentualimposto);
+               //console.log("valor " +valor);
+               //console.log("quantidade " +quantidade);
+                 
+var dados = 'nomeproduto=' +nomeproduto+ '&percentualimposto=' +percentualimposto+ '&valor=' +valor+ '&quantidade=' +quantidade;
+             
+           if(nomeproduto=='' || percentualimposto=='' || valor=='' || quantidade==''){
+                    alert("Há campos em branco!");
+                 }
+           else {
+                  
+                     		$.ajax({
+                                type: "POST",
+				url: "cadproduto.php",
+				data: dados,
+                                dataType:"text",
+                                beforeSend: function() {
+                                    //alert("carregando...");
+                                },
+                                error: function(XMLHttpRequest, textStatus, errorThrown){
+                                     alert("Houve algum problem " );
+                                     
+                                },
+				success: function( retorno ){
+                                     alert("Dado enviado com sucesso ");        
+				}       
+                      });
+               }
+           });		    
+	});
+  </script> 
+</head>
+<body>
+  <form name="formcadproduto" id="formcadproduto">
+  <h1>Cadastro de produtos e seus impostos  </h1>
+    
+    <div>
+          <label for="nomeproduto"> Produto: </label>
+          <input type="text" name="nomeproduto" id="nomeproduto" />
+     </div>
+     <div>
+          <label for="percentualimposto"> Percentual Imposto: </label>
+          <input type="text" name="percentualimposto" id="percentualimposto" />
+     </div>
+     <div>  
+          <label for="valor"> Valor (pre&ccedil;o):  </label>
+          <input type="text" name="valor" id="valor" />
+     </div>
+     <div>
+     	  <label for="quantidade"> Quantidade:  </label>
+          <input type="text"  name="quantidade" id="quantidade" />
+     </div>
+     <div class="button">  
+             <button type="submit" id="submit"> Cadastrar </button>
+             <button type="reset"> Limpar </button>
+     </div>
+
+     <div>
+        <a href="totalizador.php" target="_blank" > Totalizador </a>
+     </div>  
+ </form>
+</body>
+</html>
