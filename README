@@ -1,11 +1,8 @@
 Programador: Reginaldo
 
-Sistema: Cadastro de produtos e impostos
+Aplicação: Cadastro de produtos e impostos
 Linguagem: PHP
 SGBD: PostgreSQL
-database: cadprodutos
-username: reginaldo
-password: 123abc
 
 IMPORTAR O BANCO
 Criar o banco com mesmo username e password
