@@ -5,9 +5,9 @@ Linguagem: PHP
 SGBD: PostgreSQL
 
 IMPORTAR O BANCO
-Criar o banco com mesmo username e password
+Criar o banco com mesmo com o nome cadprodutos no SGBD PostgreSQL
 No terminal do psql na plataforma Linux
 
-# psql -h localhost -p 5432 -U <username> <database> < database/bdteste.sql
+# psql -h localhost -p 5432 -U <username> <database> < database/bdcadprodutos.sql
 
 
